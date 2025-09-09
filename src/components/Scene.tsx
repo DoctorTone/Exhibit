@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Stage, useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 const Scene = () => {
   const { scene, animations } = useGLTF("./models/dinosaur.glb");
@@ -9,11 +9,7 @@ const Scene = () => {
     actions?.Animation?.play();
   }, []);
 
-  return (
-    <Stage adjustCamera={false} shadows="contact">
-      <primitive ref={ref} object={scene} />
-    </Stage>
-  );
+  return <primitive ref={ref} object={scene} />;
 };
 
 export default Scene;

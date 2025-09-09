@@ -1,14 +1,16 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { SCENE, INTERACTIONS } from "./state/Config";
+import { INTERACTIONS } from "./state/Config";
 import DaySky from "./components/DaySky";
 import Scene from "./components/Scene";
+import Lights from "./components/Lights";
 
 function App() {
   return (
     <>
-      <Canvas camera={{ position: SCENE.CAMERA_POSITION }}>
-        <DaySky />
+      <Canvas>
+        {/* <DaySky /> */}
+        <Lights />
         <Scene />
         <OrbitControls
           makeDefault
