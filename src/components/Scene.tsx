@@ -1,11 +1,11 @@
-import { Box, Stage } from "@react-three/drei";
+import { Stage, useGLTF } from "@react-three/drei";
 
 const Scene = () => {
+  const { scene } = useGLTF("./models/dinosaur.glb");
+
   return (
     <Stage adjustCamera={false} shadows="contact">
-      <Box>
-        <meshStandardMaterial color="red" />
-      </Box>
+      <primitive object={scene} />
     </Stage>
   );
 };
