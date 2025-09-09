@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { SCENE } from "./state/Config";
+import { SCENE, INTERACTIONS } from "./state/Config";
 import DaySky from "./components/DaySky";
 import Scene from "./components/Scene";
 
@@ -12,8 +12,8 @@ function App() {
         <Scene />
         <OrbitControls
           makeDefault
-          enablePan={false}
-          enableRotate={true}
+          enablePan={INTERACTIONS.PAN}
+          enableRotate={INTERACTIONS.ROTATE}
           enableDamping={true}
           minPolarAngle={0}
           maxPolarAngle={Math.PI / 2}
