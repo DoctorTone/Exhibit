@@ -1,15 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { INTERACTIONS } from "./state/Config";
-import DaySky from "./components/DaySky";
 import Scene from "./components/Scene";
 import Lights from "./components/Lights";
+import UI from "./components/UI";
 
 function App() {
   return (
     <>
       <Canvas>
-        {/* <DaySky /> */}
         <Lights />
         <Scene />
         <OrbitControls
@@ -21,6 +20,7 @@ function App() {
           maxPolarAngle={Math.PI / 2}
         />
       </Canvas>
+      <UI />
     </>
   );
 }

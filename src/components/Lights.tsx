@@ -10,7 +10,7 @@ const Lights = () => {
           <meshBasicMaterial side={BackSide}>
             <GradientTexture
               stops={[0, 1]} // As many stops as you want
-              colors={["white", "#304ed1"]} // Colors need to match the number of stops
+              colors={["white", "#5e74d6"]} // Colors need to match the number of stops
             />
           </meshBasicMaterial>
         </mesh>
