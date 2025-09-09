@@ -1,22 +1,15 @@
 import { Canvas } from "@react-three/fiber";
-import { Box, Sky, Stage, OrbitControls } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { SCENE } from "./state/Config";
+import DaySky from "./components/DaySky";
+import Scene from "./components/Scene";
 
 function App() {
   return (
     <>
       <Canvas camera={{ position: SCENE.CAMERA_POSITION }}>
-        <Sky
-          distance={450000}
-          sunPosition={[0, 1, 1]}
-          inclination={0}
-          azimuth={0.25}
-        />
-        <Stage adjustCamera={false} shadows="contact" environment="city">
-          <Box>
-            <meshStandardMaterial color="red" />
-          </Box>
-        </Stage>
+        <DaySky />
+        <Scene />
         <OrbitControls
           makeDefault
           enablePan={false}
