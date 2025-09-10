@@ -4,15 +4,16 @@ import { INTERACTIONS } from "./state/Config";
 import Scene from "./components/Scene";
 import Lights from "./components/Lights";
 import UI from "./components/UI";
+import ResponsiveCamera from "./components/ResponsiveCamera";
 
 function App() {
   return (
     <>
       <Canvas>
+        <ResponsiveCamera />
         <Lights />
         <Scene />
         <OrbitControls
-          makeDefault
           enablePan={INTERACTIONS.PAN}
           enableRotate={INTERACTIONS.ROTATE}
           enableDamping={true}

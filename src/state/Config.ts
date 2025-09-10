@@ -1,7 +1,7 @@
-import { Vector3 } from "three";
-
-const SCENE = {
-  CAMERA_POSITION: new Vector3(0, 3, 6),
+const CAMERA_POSITION = {
+  X: 0,
+  Y: 3,
+  Z: 6,
 };
 
 const INTERACTIONS = {
@@ -9,4 +9,4 @@ const INTERACTIONS = {
   ROTATE: true,
 };
 
-export { SCENE, INTERACTIONS };
+export { CAMERA_POSITION, INTERACTIONS };

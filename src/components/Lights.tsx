@@ -4,7 +4,7 @@ import { BackSide } from "three";
 const Lights = () => {
   return (
     <>
-      <Environment background near={1} far={1000} resolution={256}>
+      <Environment background>
         <mesh scale={10}>
           <sphereGeometry args={[1, 64, 64]} />
           <meshBasicMaterial side={BackSide}>

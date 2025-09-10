@@ -1,23 +1,26 @@
 import { useControls } from "leva";
 import usePosition from "../state/store";
+import { CAMERA_POSITION } from "../state/Config";
 
 const UI = () => {
   const setCameraXPos = usePosition((state) => state.setCameraXPos);
   const setCameraYPos = usePosition((state) => state.setCameraYPos);
   const setCameraZPos = usePosition((state) => state.setCameraZPos);
 
-  const controls = useControls({
+  useControls({
     xCoord: {
-      value: 0,
+      value: CAMERA_POSITION.X,
       min: -50,
       max: 50,
       step: 1,
       onChange: (value) => {
         setCameraXPos(value);
+        // DEBUG
+        console.log("Cam x = ", value);
       },
     },
     yCoord: {
-      value: 0,
+      value: CAMERA_POSITION.Y,
       min: -50,
       max: 50,
       step: 1,
@@ -26,7 +29,7 @@ const UI = () => {
       },
     },
     zCoord: {
-      value: 0,
+      value: CAMERA_POSITION.Z,
       min: -50,
       max: 50,
       step: 1,
@@ -35,6 +38,7 @@ const UI = () => {
       },
     },
   });
+
   return null;
 };
 
