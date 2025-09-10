@@ -10,9 +10,9 @@ const UI = () => {
   useControls({
     xCoord: {
       value: CAMERA_POSITION.X,
-      min: -50,
-      max: 50,
-      step: 1,
+      min: 0,
+      max: 10,
+      step: 0.1,
       onChange: (value) => {
         setCameraXPos(value);
         // DEBUG
@@ -21,18 +21,18 @@ const UI = () => {
     },
     yCoord: {
       value: CAMERA_POSITION.Y,
-      min: -50,
-      max: 50,
-      step: 1,
+      min: -5,
+      max: 10,
+      step: 0.1,
       onChange: (value) => {
         setCameraYPos(value);
       },
     },
     zCoord: {
       value: CAMERA_POSITION.Z,
-      min: -50,
-      max: 50,
-      step: 1,
+      min: 0,
+      max: 10,
+      step: 0.1,
       onChange: (value) => {
         setCameraZPos(value);
       },

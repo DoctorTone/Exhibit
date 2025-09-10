@@ -5,6 +5,7 @@ import Scene from "./components/Scene";
 import Lights from "./components/Lights";
 import UI from "./components/UI";
 import ResponsiveCamera from "./components/ResponsiveCamera";
+import { TARGET_POSITION } from "./state/Config";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           enableDamping={true}
           minPolarAngle={0}
           maxPolarAngle={Math.PI / 2}
+          target={[TARGET_POSITION.X, TARGET_POSITION.Y, TARGET_POSITION.Z]}
         />
       </Canvas>
       <UI />
