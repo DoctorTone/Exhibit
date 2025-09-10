@@ -16,3 +16,7 @@ body {
   position: absolute;
   z-index: 100;
 }
+#title {
+  top: 5%;
+  left: 5%;
+}
