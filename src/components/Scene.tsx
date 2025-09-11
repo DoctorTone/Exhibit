@@ -41,6 +41,7 @@ const Scene = () => {
       bonePosition.y,
       bonePosition.z,
     ]);
+    lineRef.current!.computeLineDistances();
     geom.computeBoundingSphere();
   });
 
@@ -53,13 +54,15 @@ const Scene = () => {
       <Line
         ref={lineRef}
         points={[
-          [2, 0, 0],
+          [0, 0, 0],
           [0, 0, 0],
         ]}
         color="white"
         linewidth={2}
         depthTest={false}
         dashed={false}
+        dashSize={0.05}
+        gapSize={0.05}
       />
       <primitive ref={ref} object={scene} />
     </group>
