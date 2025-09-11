@@ -3,8 +3,8 @@ import { Billboard, Text } from "@react-three/drei";
 const NumberedPin = () => {
   return (
     <group>
-      <Billboard follow>
-        <group>
+      <Billboard>
+        <group position={[2, 0, 0]}>
           <mesh>
             <circleGeometry args={[0.08, 32]} />
             <meshBasicMaterial color="#5e5f61" />

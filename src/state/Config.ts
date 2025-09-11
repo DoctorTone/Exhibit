@@ -11,8 +11,8 @@ const TARGET_POSITION = {
 };
 
 const INTERACTIONS = {
-  PAN: true,
-  ROTATE: true,
+  PAN: false,
+  ROTATE: false,
 };
 
 export { CAMERA_POSITION, TARGET_POSITION, INTERACTIONS };
