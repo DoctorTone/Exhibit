@@ -1,12 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { Vector3, Mesh } from "three";
+import { useGLTF, useAnimations, Line } from "@react-three/drei";
+import { Vector3, BufferGeometry, BufferAttribute } from "three";
+import { Line2 } from "three-stdlib";
+
+const from = new Vector3(1.562, 0, -1.249);
 
 const Scene = () => {
   const { scene, animations } = useGLTF("./models/dinosaur.glb");
   const { ref, actions } = useAnimations(animations);
-  const boneRef = useRef<Mesh>(null);
+  const boneMarkerRef = useRef<Mesh>(null);
+  const lineRef = useRef<Line2>(null);
 
   useEffect(() => {
     actions?.Animation?.play();
@@ -16,7 +20,7 @@ const Scene = () => {
   let bone;
   scene.traverse((node) => {
     if (node.isSkinnedMesh) {
-      console.log("Bones = ", node.skeleton.bones);
+      // console.log("Bones = ", node.skeleton.bones);
       bone = node.skeleton.bones[6];
     }
   });
@@ -26,16 +30,37 @@ const Scene = () => {
     if (bone) {
       bone.getWorldPosition(bonePosition);
       bonePosition.y += 0.1;
-      boneRef.current!.position.copy(bonePosition);
+      boneMarkerRef.current!.position.copy(bonePosition);
     }
+    const geom = lineRef.current!.geometry as any;
+    geom.setPositions([
+      from.x,
+      from.y,
+      from.z,
+      bonePosition.x,
+      bonePosition.y,
+      bonePosition.z,
+    ]);
+    geom.computeBoundingSphere();
   });
 
   return (
     <group>
-      <mesh ref={boneRef}>
+      <mesh ref={boneMarkerRef}>
         <sphereGeometry args={[0.025]} />
         <meshBasicMaterial color="white" />
       </mesh>
+      <Line
+        ref={lineRef}
+        points={[
+          [2, 0, 0],
+          [0, 0, 0],
+        ]}
+        color="white"
+        linewidth={2}
+        depthTest={false}
+        dashed={false}
+      />
       <primitive ref={ref} object={scene} />
     </group>
   );
