@@ -1,5 +1,5 @@
 const CAMERA_POSITION = {
-  X: 0.8,
+  X: 0,
   Y: 2.2,
   Z: 1,
 };

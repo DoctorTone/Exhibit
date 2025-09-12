@@ -31,6 +31,7 @@ const HotspotDialog = () => {
             backgroundColor: "black",
             color: "white",
             borderRadius: "30px",
+            border: "orange 2px solid",
           },
         },
       }}
