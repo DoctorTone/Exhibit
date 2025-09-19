@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -10,13 +10,24 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import useStore from "../state/store";
 
-const HotspotDialog = () => {
-  const [dialogOpen, setDialogOpen] = useState(true);
+interface DialogProps {
+  showDialog: boolean;
+}
+
+const HotspotDialog = ({ showDialog }: DialogProps) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const setShowInfoDialog = useStore((state) => state.setShowInfoDialog);
 
   const handleClose = () => {
     setDialogOpen(false);
+    setShowInfoDialog(false);
   };
+
+  useEffect(() => {
+    setDialogOpen(showDialog);
+  }, [showDialog]);
 
   return (
     <Dialog

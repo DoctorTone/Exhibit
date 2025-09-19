@@ -2,20 +2,22 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Billboard, Text } from "@react-three/drei";
 import { Vector3 } from "three";
+import useStore from "../state/store";
 
 const tempVec = new Vector3();
 
 const NumberedPin = () => {
   const circleRef = useRef(null);
+  const setShowInfoDialog = useStore((state) => state.setShowInfoDialog);
 
   const showInfo = () => {
-    console.log("Clicked me!");
+    setShowInfoDialog(true);
   };
 
   useFrame(() => {
     if (circleRef.current) {
       circleRef.current.getWorldPosition(tempVec);
-      console.log("Pos = ", tempVec);
+      // console.log("Pos = ", tempVec);
     }
   });
 
