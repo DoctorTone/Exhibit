@@ -5,7 +5,7 @@ import { Vector3, Mesh, BufferGeometry, BufferAttribute } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
 
-const from = new Vector3(2, 0, 0);
+const from = new Vector3(0.88, 0.52, 0.35);
 
 const Scene = () => {
   const { scene, animations } = useGLTF("./models/dinosaur.glb");
