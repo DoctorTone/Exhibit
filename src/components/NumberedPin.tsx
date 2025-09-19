@@ -28,7 +28,7 @@ const NumberedPin = () => {
           <circleGeometry args={[0.1, 32]} />
           <meshBasicMaterial color="orange" />
         </mesh>
-        <mesh ref={circleRef}>
+        <mesh onClick={showInfo} ref={circleRef}>
           <circleGeometry args={[0.08, 32]} />
           <meshBasicMaterial color="#5e5f61" />
         </mesh>

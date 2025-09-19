@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import useStore from "../state/store";
 
 interface DialogProps {
@@ -35,10 +36,11 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
       onClose={handleClose}
       maxWidth="sm"
       fullWidth={true}
+      sx={{ backdropFilter: "blur(10px)" }}
       slotProps={{
         paper: {
           sx: {
-            opacity: 0.6,
+            opacity: 0.65,
             backgroundColor: "#444444",
             color: "orange",
             borderRadius: "30px",
@@ -58,8 +60,8 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
       </DialogContent>
 
       <DialogActions sx={{ p: 2 }}>
-        <Button variant="contained" onClick={handleClose}>
-          Close
+        <Button variant="outlined" color="warning" onClick={handleClose}>
+          OK
         </Button>
       </DialogActions>
     </Dialog>
