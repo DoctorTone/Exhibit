@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, Line } from "@react-three/drei";
 import { Vector3, Mesh, BufferGeometry, BufferAttribute } from "three";
 import { Line2 } from "three-stdlib";
+import Ocean from "./Ocean";
 
 const from = new Vector3(1.562, 0, -1.249);
 
@@ -65,10 +66,7 @@ const Scene = () => {
         gapSize={0.05}
       />
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
-      <mesh position={[0, -10, 100]} rotation-x={-Math.PI / 2}>
-        <planeGeometry args={[500, 220]} />
-        <meshStandardMaterial color="blue" />
-      </mesh>
+      <Ocean />
     </group>
   );
 };
