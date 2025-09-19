@@ -1,14 +1,29 @@
-import React, { useRef, useMemo } from "react";
-import { useThree, useFrame, extend } from "@react-three/fiber";
+import { useRef, useMemo } from "react";
+import { useFrame, extend } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import { RepeatWrapping, PlaneGeometry, Vector3 } from "three";
 import { Water } from "three-stdlib";
 
 extend({ Water });
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      water: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & {
+        ref?: React.Ref<any>;
+        args?: any[];
+        "rotation-x"?: number;
+        "position-y"?: number;
+      };
+    }
+  }
+}
+
 const Ocean = () => {
   const waterRef = useRef<any>(null);
-  const { gl } = useThree();
   const waterNormals = useTexture("./textures/waternormals.jpg");
   waterNormals.wrapS = waterNormals.wrapT = RepeatWrapping;
 
@@ -23,7 +38,6 @@ const Ocean = () => {
       waterColor: 0x001e0f,
       distortionScale: 3.7,
       fog: false,
-      format: gl.encoding,
     }),
     [waterNormals]
   );

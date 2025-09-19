@@ -5,7 +5,7 @@ import { Vector3, Mesh, BufferGeometry, BufferAttribute } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
 
-const from = new Vector3(1.562, 0, -1.249);
+const from = new Vector3(2, 0, 0);
 
 const Scene = () => {
   const { scene, animations } = useGLTF("./models/dinosaur.glb");
@@ -59,11 +59,8 @@ const Scene = () => {
           [0, 0, 0],
         ]}
         color="white"
-        linewidth={2}
-        depthTest={false}
-        dashed={false}
-        dashSize={0.05}
-        gapSize={0.05}
+        linewidth={3}
+        depthTest={true}
       />
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />

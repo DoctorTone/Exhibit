@@ -17,7 +17,11 @@ const NumberedPin = () => {
 
   return (
     <Billboard>
-      <group position={[2, 0, 0]}>
+      <group position={[2, 0, 0.1]}>
+        <mesh ref={circleRef}>
+          <circleGeometry args={[0.1, 32]} />
+          <meshBasicMaterial color="orange" />
+        </mesh>
         <mesh ref={circleRef}>
           <circleGeometry args={[0.08, 32]} />
           <meshBasicMaterial color="#5e5f61" />
