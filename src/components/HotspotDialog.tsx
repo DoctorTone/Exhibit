@@ -38,11 +38,11 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
       slotProps={{
         paper: {
           sx: {
-            opacity: 0.65,
-            backgroundColor: "black",
-            color: "white",
+            opacity: 0.6,
+            backgroundColor: "#444444",
+            color: "orange",
             borderRadius: "30px",
-            border: "orange 2px solid",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
           },
         },
       }}
