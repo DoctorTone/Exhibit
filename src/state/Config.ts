@@ -17,6 +17,10 @@ const INTERACTIONS = {
   ROTATE: true,
 };
 
-const NUMBERED_PINS = [new Vector3(1, 0, 0.5)];
+const NUMBERED_PINS = [
+  new Vector3(1, 0, 0.5),
+  new Vector3(-1.75, 0.5, 0.5),
+  new Vector3(1.5, 1.5, 0.5),
+];
 
 export { CAMERA_POSITION, TARGET_POSITION, INTERACTIONS, NUMBERED_PINS };
