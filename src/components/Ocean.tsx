@@ -6,24 +6,8 @@ import { Water } from "three-stdlib";
 
 extend({ Water });
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      water: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      > & {
-        ref?: React.Ref<any>;
-        args?: any[];
-        "rotation-x"?: number;
-        "position-y"?: number;
-      };
-    }
-  }
-}
-
 const Ocean = () => {
-  const waterRef = useRef<any>(null);
+  const waterRef = useRef<Water>(null);
   const waterNormals = useTexture("./textures/waternormals.jpg");
   waterNormals.wrapS = waterNormals.wrapT = RepeatWrapping;
 
@@ -47,6 +31,7 @@ const Ocean = () => {
   });
 
   return (
+    //@ts-ignore
     <water
       ref={waterRef}
       args={[geom, config]}
