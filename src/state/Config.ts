@@ -1,3 +1,5 @@
+import { Vector3 } from "three";
+
 const CAMERA_POSITION = {
   X: 0,
   Y: 2.2,
@@ -15,4 +17,6 @@ const INTERACTIONS = {
   ROTATE: true,
 };
 
-export { CAMERA_POSITION, TARGET_POSITION, INTERACTIONS };
+const NUMBERED_PINS = [new Vector3(1, 0, 0.5)];
+
+export { CAMERA_POSITION, TARGET_POSITION, INTERACTIONS, NUMBERED_PINS };

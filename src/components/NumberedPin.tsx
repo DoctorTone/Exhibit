@@ -1,34 +1,27 @@
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import { Billboard, Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import useStore from "../state/store";
 
-const tempVec = new Vector3();
+interface PinProps {
+  pinPosition: Vector3;
+  index: number;
+}
 
-const NumberedPin = () => {
-  const circleRef = useRef(null);
+const NumberedPin = ({ pinPosition, index }: PinProps) => {
   const setShowInfoDialog = useStore((state) => state.setShowInfoDialog);
 
   const showInfo = () => {
     setShowInfoDialog(true);
   };
 
-  useFrame(() => {
-    if (circleRef.current) {
-      circleRef.current.getWorldPosition(tempVec);
-      // console.log("Pos = ", tempVec);
-    }
-  });
-
   return (
     <Billboard>
-      <group position={[1, 0, 0.5]}>
-        <mesh ref={circleRef}>
+      <group position={pinPosition}>
+        <mesh>
           <circleGeometry args={[0.1, 32]} />
           <meshBasicMaterial color="orange" />
         </mesh>
-        <mesh onClick={showInfo} ref={circleRef}>
+        <mesh onClick={showInfo}>
           <circleGeometry args={[0.08, 32]} />
           <meshBasicMaterial color="#5e5f61" />
         </mesh>
@@ -39,7 +32,7 @@ const NumberedPin = () => {
           outlineWidth={0.012}
           outlineColor="black"
         >
-          1
+          {index + 1}
         </Text>
       </group>
     </Billboard>

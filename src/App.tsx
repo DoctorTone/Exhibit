@@ -6,7 +6,6 @@ import Lights from "./components/Lights";
 import UI from "./components/UI";
 import ResponsiveCamera from "./components/ResponsiveCamera";
 import { TARGET_POSITION } from "./state/Config";
-import NumberedPin from "./components/NumberedPin";
 import DaySky from "./components/DaySky";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <Lights />
         <DaySky />
         <Scene />
-        <NumberedPin />
         <OrbitControls
           enablePan={INTERACTIONS.PAN}
           enableRotate={INTERACTIONS.ROTATE}

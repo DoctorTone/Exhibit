@@ -4,6 +4,8 @@ import { useGLTF, useAnimations, Line } from "@react-three/drei";
 import { Vector3, Mesh, BufferGeometry, BufferAttribute } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
+import { NUMBERED_PINS } from "../state/Config";
+import NumberedPin from "./NumberedPin";
 
 const from = new Vector3(0.88, 0.52, 0.35);
 
@@ -64,6 +66,9 @@ const Scene = () => {
       />
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />
+      {NUMBERED_PINS.map((position, index) => (
+        <NumberedPin key={index} pinPosition={position} index={index} />
+      ))}
     </group>
   );
 };
