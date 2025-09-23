@@ -11,7 +11,11 @@ import {
 } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
-import { NUMBERED_PINS, NUMBERED_PINS_WORLD } from "../state/Config";
+import {
+  NUMBERED_PINS,
+  NUMBERED_PINS_WORLD,
+  INFOMARKER_OFFSETS,
+} from "../state/Config";
 import NumberedPin from "./NumberedPin";
 import InfoMarkers from "./InfoMarkers";
 
@@ -55,7 +59,7 @@ const Scene = () => {
   useFrame(() => {
     for (let i = 0; i < boneMarkerRefs.length; ++i) {
       boneMarkerRefs[i].current!.getWorldPosition(tempVec);
-      tempVec.y += 0.1;
+      tempVec.y += INFOMARKER_OFFSETS[i];
       bonePosRefs[i].current.copy(tempVec);
     }
 
