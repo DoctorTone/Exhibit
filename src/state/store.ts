@@ -9,8 +9,10 @@ type ExhibitState = {
   setCameraYPos: (pos: number) => void;
   setCameraZPos: (pos: number) => void;
 
-  showInfoDialog: number;
-  setShowInfoDialog: (dialog: number) => void;
+  showPinDialog: number;
+  setShowPinDialog: (dialog: number) => void;
+  infoDialogOpen: boolean;
+  setShowInfoDialog: (status: boolean) => void;
 };
 
 const usePosition = create<ExhibitState>((set) => ({
@@ -28,8 +30,10 @@ const usePosition = create<ExhibitState>((set) => ({
       cameraPosition: [state.cameraPosition[0], state.cameraPosition[1], z],
     })),
 
-  showInfoDialog: -1,
-  setShowInfoDialog: (dialog) => set(() => ({ showInfoDialog: dialog })),
+  showPinDialog: -1,
+  setShowPinDialog: (dialog) => set(() => ({ showPinDialog: dialog })),
+  infoDialogOpen: false,
+  setShowInfoDialog: (status) => set(() => ({ infoDialogOpen: status })),
 }));
 
 export default usePosition;

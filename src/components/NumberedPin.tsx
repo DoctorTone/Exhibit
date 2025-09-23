@@ -12,11 +12,11 @@ interface PinProps {
 const tempVec = new Vector3();
 
 const NumberedPin = ({ pinPosition, index }: PinProps) => {
-  const setShowInfoDialog = useStore((state) => state.setShowInfoDialog);
+  const setShowPinDialog = useStore((state) => state.setShowPinDialog);
   // const pinRef = useRef<Group>(null);
 
   const showInfo = () => {
-    setShowInfoDialog(index);
+    setShowPinDialog(index);
   };
 
   // useFrame(() => {

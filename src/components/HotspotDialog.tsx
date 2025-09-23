@@ -14,11 +14,11 @@ interface DialogProps {
 
 const HotspotDialog = ({ showDialog }: DialogProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const setShowInfoDialog = useStore((state) => state.setShowInfoDialog);
+  const setShowPinDialog = useStore((state) => state.setShowPinDialog);
 
   const handleClose = () => {
     setDialogOpen(false);
-    setShowInfoDialog(-1);
+    setShowPinDialog(-1);
   };
 
   useEffect(() => {

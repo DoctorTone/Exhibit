@@ -4,14 +4,14 @@ import Info from "./Info";
 import useStore from "../state/store";
 
 const UI = () => {
-  const showInfoDialog = useStore((state) => state.showInfoDialog);
+  const showPinDialog = useStore((state) => state.showPinDialog);
 
   return (
     <>
       {/* <Controls /> */}
       <Title />
       <Info />
-      <HotspotDialog showDialog={showInfoDialog} />
+      <HotspotDialog showDialog={showPinDialog} />
     </>
   );
 };
