@@ -11,7 +11,7 @@ import {
 } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
-import { NUMBERED_PINS } from "../state/Config";
+import { NUMBERED_PINS, NUMBERED_PINS_WORLD } from "../state/Config";
 import NumberedPin from "./NumberedPin";
 import InfoMarkers from "./InfoMarkers";
 
@@ -61,7 +61,7 @@ const Scene = () => {
 
     for (let i = 0; i < lineRefs.length; ++i) {
       const geom = lineRefs[i].current!.geometry as any;
-      const from = NUMBERED_PINS[i];
+      const from = NUMBERED_PINS_WORLD[i];
       const to = bonePosRefs[i].current;
       geom.setPositions([from.x, from.y, from.z, to.x, to.y, to.z]);
       lineRefs[i].current!.computeLineDistances();

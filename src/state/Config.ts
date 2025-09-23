@@ -23,4 +23,16 @@ const NUMBERED_PINS = [
   new Vector3(1.5, 1.5, 0.5),
 ];
 
-export { CAMERA_POSITION, TARGET_POSITION, INTERACTIONS, NUMBERED_PINS };
+const NUMBERED_PINS_WORLD = [
+  new Vector3(1, 0.35, 0.35),
+  new Vector3(-1.75, 0.707, 0),
+  new Vector3(1.5, 1.41, -0.707),
+];
+
+export {
+  CAMERA_POSITION,
+  TARGET_POSITION,
+  INTERACTIONS,
+  NUMBERED_PINS,
+  NUMBERED_PINS_WORLD,
+};
