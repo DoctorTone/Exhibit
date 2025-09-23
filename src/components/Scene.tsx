@@ -1,14 +1,7 @@
-import { useEffect, useRef, createRef, type RefObject } from "react";
+import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, Line } from "@react-three/drei";
-import {
-  Vector3,
-  Mesh,
-  BufferGeometry,
-  BufferAttribute,
-  Bone,
-  SkinnedMesh,
-} from "three";
+import { Vector3, Bone, SkinnedMesh } from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
 import {

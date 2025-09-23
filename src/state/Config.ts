@@ -13,9 +13,24 @@ const TARGET_POSITION = {
 };
 
 const INTERACTIONS = {
-  PAN: true,
-  ROTATE: true,
+  PAN: false,
+  ROTATE: false,
 };
+
+const DIALOG_TEXT = [
+  {
+    title: "Wings",
+    text: "Wings are made of skin.",
+  },
+  {
+    title: "Teeth",
+    text: "Pterodactylus had 90 teeth",
+  },
+  {
+    title: "Feet",
+    text: "They had tiny feet",
+  },
+];
 
 const NUMBERED_PINS = [
   new Vector3(1, 0, 0.5),
@@ -38,4 +53,5 @@ export {
   NUMBERED_PINS,
   NUMBERED_PINS_WORLD,
   INFOMARKER_OFFSETS,
+  DIALOG_TEXT,
 };

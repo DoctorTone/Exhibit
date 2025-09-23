@@ -3,18 +3,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import Chip from "@mui/material/Chip";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { DIALOG_TEXT } from "../state/Config";
 import useStore from "../state/store";
 
 interface DialogProps {
-  showDialog: boolean;
+  showDialog: number;
 }
 
 const HotspotDialog = ({ showDialog }: DialogProps) => {
@@ -23,11 +18,11 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
 
   const handleClose = () => {
     setDialogOpen(false);
-    setShowInfoDialog(false);
+    setShowInfoDialog(-1);
   };
 
   useEffect(() => {
-    setDialogOpen(showDialog);
+    setDialogOpen(showDialog > -1);
   }, [showDialog]);
 
   return (
@@ -50,12 +45,12 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
       }}
     >
       <DialogTitle variant="h4" sx={{ textAlign: "center" }}>
-        Wings
+        {showDialog > -1 && DIALOG_TEXT[showDialog].title}
       </DialogTitle>
 
       <DialogContent>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          Wings are made of skin.
+          {showDialog > -1 && DIALOG_TEXT[showDialog].text}
         </Typography>
       </DialogContent>
 
