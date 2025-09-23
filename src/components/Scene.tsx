@@ -1,60 +1,78 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, createRef, type RefObject } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, Line } from "@react-three/drei";
-import { Vector3, Mesh, BufferGeometry, BufferAttribute } from "three";
+import {
+  Vector3,
+  Mesh,
+  BufferGeometry,
+  BufferAttribute,
+  Bone,
+  SkinnedMesh,
+} from "three";
 import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
 import { NUMBERED_PINS } from "../state/Config";
 import NumberedPin from "./NumberedPin";
+import InfoMarkers from "./InfoMarkers";
 
 const from = new Vector3(0.88, 0.52, 0.35);
+const tempVec = new Vector3();
 
 const Scene = () => {
   const { scene, animations } = useGLTF("./models/dinosaur.glb");
+
   const { ref, actions } = useAnimations(animations);
-  const boneMarkerRef = useRef<Mesh>(null);
+  const boneMarkerRefs = [
+    useRef<Bone>(null),
+    useRef<Bone>(null),
+    useRef<Bone>(null),
+  ];
+  const bonePosRefs = [
+    useRef<Vector3>(new Vector3()),
+    useRef<Vector3>(new Vector3()),
+    useRef<Vector3>(new Vector3()),
+  ];
   const lineRef = useRef<Line2>(null);
 
   useEffect(() => {
     actions?.Animation?.play();
   }, []);
 
-  // DEBUG
-  let bone;
-  scene.traverse((node) => {
-    if (node.isSkinnedMesh) {
-      // console.log("Bones = ", node.skeleton.bones);
-      bone = node.skeleton.bones[6];
-    }
-  });
+  useEffect(() => {
+    if (!scene) return;
 
-  let bonePosition = new Vector3();
+    const skinnedMesh = scene.getObjectByName("Object_135") as SkinnedMesh;
+    if (!skinnedMesh) return;
+
+    boneMarkerRefs[0].current = skinnedMesh.skeleton.bones[6];
+    boneMarkerRefs[1].current = skinnedMesh.skeleton.bones[24];
+    boneMarkerRefs[2].current = skinnedMesh.skeleton.bones[30];
+  }, [scene]);
+
   useFrame(() => {
-    if (bone) {
-      bone.getWorldPosition(bonePosition);
-      bonePosition.y += 0.1;
-      boneMarkerRef.current!.position.copy(bonePosition);
+    for (let i = 0; i < boneMarkerRefs.length; ++i) {
+      boneMarkerRefs[i].current!.getWorldPosition(tempVec);
+      tempVec.y += 0.1;
+      bonePosRefs[i].current.copy(tempVec);
     }
-    const geom = lineRef.current!.geometry as any;
-    geom.setPositions([
-      from.x,
-      from.y,
-      from.z,
-      bonePosition.x,
-      bonePosition.y,
-      bonePosition.z,
-    ]);
-    lineRef.current!.computeLineDistances();
-    geom.computeBoundingSphere();
+
+    // const geom = lineRef.current!.geometry as any;
+    // geom.setPositions([
+    //   from.x,
+    //   from.y,
+    //   from.z,
+    //   tempVec.x,
+    //   tempVec.y,
+    //   tempVec.z,
+    // ]);
+    // lineRef.current!.computeLineDistances();
+    // geom.computeBoundingSphere();
   });
 
   return (
     <group>
-      <mesh ref={boneMarkerRef}>
-        <sphereGeometry args={[0.025]} />
-        <meshBasicMaterial color="white" />
-      </mesh>
-      <Line
+      <InfoMarkers posRefs={bonePosRefs} />
+      {/* <Line
         ref={lineRef}
         points={[
           [0, 0, 0],
@@ -63,7 +81,7 @@ const Scene = () => {
         color="white"
         linewidth={3}
         depthTest={true}
-      />
+      /> */}
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />
       {NUMBERED_PINS.map((position, index) => (
