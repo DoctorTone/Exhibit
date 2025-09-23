@@ -15,7 +15,6 @@ import { NUMBERED_PINS } from "../state/Config";
 import NumberedPin from "./NumberedPin";
 import InfoMarkers from "./InfoMarkers";
 
-const from = new Vector3(0.88, 0.52, 0.35);
 const tempVec = new Vector3();
 
 const Scene = () => {
@@ -32,7 +31,11 @@ const Scene = () => {
     useRef<Vector3>(new Vector3()),
     useRef<Vector3>(new Vector3()),
   ];
-  const lineRef = useRef<Line2>(null);
+  const lineRefs = [
+    useRef<Line2>(null),
+    useRef<Line2>(null),
+    useRef<Line2>(null),
+  ];
 
   useEffect(() => {
     actions?.Animation?.play();
@@ -56,32 +59,31 @@ const Scene = () => {
       bonePosRefs[i].current.copy(tempVec);
     }
 
-    // const geom = lineRef.current!.geometry as any;
-    // geom.setPositions([
-    //   from.x,
-    //   from.y,
-    //   from.z,
-    //   tempVec.x,
-    //   tempVec.y,
-    //   tempVec.z,
-    // ]);
-    // lineRef.current!.computeLineDistances();
-    // geom.computeBoundingSphere();
+    for (let i = 0; i < lineRefs.length; ++i) {
+      const geom = lineRefs[i].current!.geometry as any;
+      const from = NUMBERED_PINS[i];
+      const to = bonePosRefs[i].current;
+      geom.setPositions([from.x, from.y, from.z, to.x, to.y, to.z]);
+      lineRefs[i].current!.computeLineDistances();
+      geom.computeBoundingSphere();
+    }
   });
 
   return (
     <group>
       <InfoMarkers posRefs={bonePosRefs} />
-      {/* <Line
-        ref={lineRef}
-        points={[
-          [0, 0, 0],
-          [0, 0, 0],
-        ]}
-        color="white"
-        linewidth={3}
-        depthTest={true}
-      /> */}
+      {NUMBERED_PINS.map((position, index) => (
+        <Line
+          ref={lineRefs[index]}
+          points={[
+            [0, 0, 0],
+            [0, 0, 0],
+          ]}
+          color="white"
+          linewidth={3}
+          depthTest={true}
+        />
+      ))}
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />
       {NUMBERED_PINS.map((position, index) => (
