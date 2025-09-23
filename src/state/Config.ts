@@ -24,9 +24,9 @@ const NUMBERED_PINS = [
 ];
 
 const NUMBERED_PINS_WORLD = [
-  new Vector3(1, 0.35, 0.35),
-  new Vector3(-1.75, 0.707, 0),
-  new Vector3(1.5, 1.41, -0.707),
+  new Vector3(0.85, 0.6, 0.35),
+  new Vector3(-1.625, 0.707, 0),
+  new Vector3(1.375, 1.41, -0.707),
 ];
 
 export {
