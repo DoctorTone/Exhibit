@@ -47,9 +47,9 @@ const Scene = () => {
     const skinnedMesh = scene.getObjectByName("Object_135") as SkinnedMesh;
     if (!skinnedMesh) return;
 
-    boneMarkerRefs[0].current = skinnedMesh.skeleton.bones[6];
-    boneMarkerRefs[1].current = skinnedMesh.skeleton.bones[24];
-    boneMarkerRefs[2].current = skinnedMesh.skeleton.bones[30];
+    boneMarkerRefs[0].current = skinnedMesh.skeleton.bones[30];
+    boneMarkerRefs[1].current = skinnedMesh.skeleton.bones[14];
+    boneMarkerRefs[2].current = skinnedMesh.skeleton.bones[90];
   }, [scene]);
 
   useFrame(() => {
@@ -72,7 +72,7 @@ const Scene = () => {
   return (
     <group>
       <InfoMarkers posRefs={bonePosRefs} />
-      {NUMBERED_PINS.map((position, index) => (
+      {NUMBERED_PINS.map((_, index) => (
         <Line
           ref={lineRefs[index]}
           points={[
