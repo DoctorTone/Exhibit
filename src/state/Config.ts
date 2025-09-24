@@ -20,15 +20,22 @@ const INTERACTIONS = {
 const DIALOG_TEXT = [
   {
     title: "Wings",
-    text: "Wings are made of skin.",
+    text: `Pterodactylus had wings made of skin and muscle stretched over it's limbs. 
+		They typically had wing spans of about 3 feet, but pterosaurs (the genus) had 
+		wing spans ranging from 10 inches to over 30 feet - that's the difference between a
+		sparrow and a plane!`,
   },
   {
     title: "Teeth",
-    text: "Pterodactylus had 90 teeth",
+    text: `Pterodactylus was a carnivore with a diet consisting of small animals.
+		They had about 90 narrow and conical teeth. These
+		extended back from the tips of both jaws. You probably wouldn't want to get bitten!`,
   },
   {
-    title: "Feet",
-    text: "They had tiny feet",
+    title: "Reptile",
+    text: `Pterodactylus was a flying reptile and was the first pterosaur fossil ever to be
+		identified. Pterodactylus was not a dinosaur and, unlike dinosaurs, have left no living
+		descendants.`,
   },
 ];
 

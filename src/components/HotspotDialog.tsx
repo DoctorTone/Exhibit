@@ -48,7 +48,7 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
         {showDialog > -1 && DIALOG_TEXT[showDialog].title}
       </DialogTitle>
 
-      <DialogContent>
+      <DialogContent dividers>
         <Typography variant="h6" sx={{ mb: 2 }}>
           {showDialog > -1 && DIALOG_TEXT[showDialog].text}
         </Typography>
