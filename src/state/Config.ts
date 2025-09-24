@@ -17,6 +17,21 @@ const INTERACTIONS = {
   ROTATE: false,
 };
 
+const INFO_LINES = [
+  {
+    color: "orange",
+    width: 3,
+  },
+  {
+    color: "orange",
+    width: 3,
+  },
+  {
+    color: "orange",
+    width: 3,
+  },
+];
+
 const DIALOG_TEXT = [
   {
     title: "Wings",
@@ -61,4 +76,5 @@ export {
   NUMBERED_PINS_WORLD,
   INFOMARKER_OFFSETS,
   DIALOG_TEXT,
+  INFO_LINES,
 };

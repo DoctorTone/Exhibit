@@ -8,6 +8,7 @@ import {
   NUMBERED_PINS,
   NUMBERED_PINS_WORLD,
   INFOMARKER_OFFSETS,
+  INFO_LINES,
 } from "../state/Config";
 import NumberedPin from "./NumberedPin";
 import InfoMarkers from "./InfoMarkers";
@@ -69,15 +70,15 @@ const Scene = () => {
   return (
     <group>
       <InfoMarkers posRefs={bonePosRefs} colour={"orange"} />
-      {NUMBERED_PINS.map((_, index) => (
+      {INFO_LINES.map((props, index) => (
         <Line
           ref={lineRefs[index]}
           points={[
             [0, 0, 0],
             [0, 0, 0],
           ]}
-          color="white"
-          linewidth={3}
+          color={props.color}
+          linewidth={props.width}
           depthTest={true}
         />
       ))}
