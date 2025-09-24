@@ -29,6 +29,17 @@ const InfoDialog = () => {
         open={dialogOpen}
         maxWidth={"md"}
         fullWidth={true}
+        slotProps={{
+          paper: {
+            sx: {
+              opacity: 0.75,
+              backgroundColor: "#222222",
+              color: "#cccccc",
+              borderRadius: "30px",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+            },
+          },
+        }}
       >
         <DialogTitle>Dinosaur Exhibit</DialogTitle>
         <DialogContent dividers>
@@ -55,7 +66,11 @@ const InfoDialog = () => {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={handleClose}>
+          <Button
+            variant="contained"
+            onClick={handleClose}
+            sx={{ mr: 1, mb: 1 }}
+          >
             OK
           </Button>
         </DialogActions>
