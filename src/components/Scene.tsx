@@ -68,7 +68,7 @@ const Scene = () => {
 
   return (
     <group>
-      <InfoMarkers posRefs={bonePosRefs} />
+      <InfoMarkers posRefs={bonePosRefs} colour={"orange"} />
       {NUMBERED_PINS.map((_, index) => (
         <Line
           ref={lineRefs[index]}

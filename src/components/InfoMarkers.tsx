@@ -4,9 +4,10 @@ import { useFrame } from "@react-three/fiber";
 
 interface InfoProps {
   posRefs: RefObject<Vector3>[];
+  colour: string;
 }
 
-const InfoMarkers = ({ posRefs }: InfoProps) => {
+const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
   const meshRefs = [
     useRef<Mesh>(null!),
     useRef<Mesh>(null!),
@@ -26,7 +27,7 @@ const InfoMarkers = ({ posRefs }: InfoProps) => {
       {meshRefs.map((ref, index) => (
         <mesh key={index} ref={ref}>
           <sphereGeometry args={[0.025]} />
-          <meshBasicMaterial color="white" />
+          <meshBasicMaterial color={colour} />
         </mesh>
       ))}
     </>
