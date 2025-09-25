@@ -28,3 +28,9 @@ body {
   left: 3%;
   bottom: 2%;
 }
+#options {
+  bottom: 2%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}

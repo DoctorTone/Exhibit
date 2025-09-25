@@ -2,6 +2,7 @@ import Title from "./Title";
 import HotspotDialog from "./HotspotDialog";
 import Info from "./Info";
 import Copyright from "../UI/Copyright";
+import Options from "../UI/Options";
 import useStore from "../state/store";
 
 const UI = () => {
@@ -13,6 +14,7 @@ const UI = () => {
       <Title />
       <Info />
       <Copyright />
+      <Options />
       <HotspotDialog showDialog={showPinDialog} />
     </>
   );
