@@ -29,11 +29,6 @@ const Scene = () => {
     useRef<Vector3>(new Vector3()),
     useRef<Vector3>(new Vector3()),
   ];
-  const lineRefs = [
-    useRef<Line2>(null),
-    useRef<Line2>(null),
-    useRef<Line2>(null),
-  ];
 
   useEffect(() => {
     actions?.Animation?.play();
@@ -56,21 +51,12 @@ const Scene = () => {
       tempVec.y += INFOMARKER_OFFSETS[i];
       bonePosRefs[i].current.copy(tempVec);
     }
-
-    for (let i = 0; i < lineRefs.length; ++i) {
-      const geom = lineRefs[i].current!.geometry as any;
-      const from = NUMBERED_PINS_WORLD[i];
-      const to = bonePosRefs[i].current;
-      geom.setPositions([from.x, from.y, from.z, to.x, to.y, to.z]);
-      lineRefs[i].current!.computeLineDistances();
-      geom.computeBoundingSphere();
-    }
   });
 
   return (
     <group>
       <InfoMarkers posRefs={bonePosRefs} colour={"orange"} />
-      {INFO_LINES.map((props, index) => (
+      {/* {INFO_LINES.map((props, index) => (
         <Line
           ref={lineRefs[index]}
           points={[
@@ -81,12 +67,12 @@ const Scene = () => {
           linewidth={props.width}
           depthTest={true}
         />
-      ))}
+      ))} */}
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />
-      {NUMBERED_PINS.map((position, index) => (
+      {/* {NUMBERED_PINS.map((position, index) => (
         <NumberedPin key={index} pinPosition={position} index={index} />
-      ))}
+      ))} */}
     </group>
   );
 };

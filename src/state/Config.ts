@@ -47,7 +47,7 @@ const DIALOG_TEXT = [
 		extended back from the tips of both jaws. You probably wouldn't want to get bitten!`,
   },
   {
-    title: "Reptile",
+    title: "History",
     text: `Pterodactylus was a flying reptile and was the first pterosaur fossil ever to be
 		identified. Pterodactylus was not a dinosaur and, unlike dinosaurs, have left no living
 		descendants.`,
