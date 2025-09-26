@@ -36,13 +36,13 @@ const Options = () => {
         </ButtonText>
         <ButtonText
           variant="h5"
-          sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid darkblue" }}
+          sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid orange" }}
         >
           2
         </ButtonText>
         <ButtonText
           variant="h5"
-          sx={{ padding: 2, border: "6px solid purple" }}
+          sx={{ padding: 2, border: "6px solid orange" }}
         >
           3
         </ButtonText>

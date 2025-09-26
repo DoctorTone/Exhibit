@@ -35,7 +35,7 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
           <group ref={ref}>
             <mesh>
               <circleGeometry args={[0.05, 32]} />
-              <meshBasicMaterial color="orange" />
+              <meshBasicMaterial color={colour} />
             </mesh>
             <mesh>
               <circleGeometry args={[0.04, 32]} />
@@ -43,7 +43,7 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
             </mesh>
             <Text
               fontSize={0.04}
-              color={colour}
+              color="orange"
               outlineWidth={0.006}
               outlineColor="black"
             >
