@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
+import useStore from "../state/store";
 
 const ButtonText = styled(Typography)({
   backgroundColor: "#5e5f61",
@@ -13,6 +14,8 @@ const ButtonText = styled(Typography)({
 });
 
 const Options = () => {
+  const setShowPinDialog = useStore((state) => state.setShowPinDialog);
+
   return (
     <div id="options" className="panel">
       <Box
@@ -31,18 +34,21 @@ const Options = () => {
         <ButtonText
           variant="h5"
           sx={{ padding: 2, border: "6px solid orange" }}
+          onClick={() => setShowPinDialog(0)}
         >
           1
         </ButtonText>
         <ButtonText
           variant="h5"
           sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid orange" }}
+          onClick={() => setShowPinDialog(1)}
         >
           2
         </ButtonText>
         <ButtonText
           variant="h5"
           sx={{ padding: 2, border: "6px solid orange" }}
+          onClick={() => setShowPinDialog(2)}
         >
           3
         </ButtonText>
