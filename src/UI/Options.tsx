@@ -11,6 +11,7 @@ const ButtonText = styled(Typography)({
   lineHeight: 0.8,
   fontWeight: 800,
   WebkitTextStroke: "2px black",
+  border: "6px solid #fff",
 });
 
 const Options = () => {
@@ -18,6 +19,9 @@ const Options = () => {
 
   return (
     <div id="options" className="panel">
+      <Typography variant="h6" color="white" sx={{ textAlign: "center" }}>
+        Info
+      </Typography>
       <Box
         sx={{
           display: "flex",
@@ -33,21 +37,21 @@ const Options = () => {
       >
         <ButtonText
           variant="h5"
-          sx={{ padding: 2, border: "6px solid orange" }}
+          sx={{ padding: 2 }}
           onClick={() => setShowPinDialog(0)}
         >
           1
         </ButtonText>
         <ButtonText
           variant="h5"
-          sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid orange" }}
+          sx={{ mr: 10, ml: 10, padding: 2 }}
           onClick={() => setShowPinDialog(1)}
         >
           2
         </ButtonText>
         <ButtonText
           variant="h5"
-          sx={{ padding: 2, border: "6px solid orange" }}
+          sx={{ padding: 2 }}
           onClick={() => setShowPinDialog(2)}
         >
           3

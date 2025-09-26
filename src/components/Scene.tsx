@@ -55,7 +55,7 @@ const Scene = () => {
 
   return (
     <group>
-      <InfoMarkers posRefs={bonePosRefs} colour={"orange"} />
+      <InfoMarkers posRefs={bonePosRefs} colour={"white"} />
       {/* {INFO_LINES.map((props, index) => (
         <Line
           ref={lineRefs[index]}
