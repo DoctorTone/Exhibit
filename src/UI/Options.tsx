@@ -5,9 +5,9 @@ import { styled } from "@mui/material/styles";
 const ButtonText = styled(Typography)({
   backgroundColor: "#5e5f61",
   borderRadius: "50%",
-  width: "25px",
-  height: "25px",
-  lineHeight: 1,
+  width: "20px",
+  height: "20px",
+  lineHeight: 0.8,
   fontWeight: 800,
   WebkitTextStroke: "2px black",
 });
