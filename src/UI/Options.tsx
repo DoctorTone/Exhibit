@@ -36,6 +36,7 @@ const Options = () => {
         }}
       >
         <ButtonText
+          className="hover"
           variant="h5"
           sx={{ padding: 2 }}
           onClick={() => setShowPinDialog(0)}
@@ -43,6 +44,7 @@ const Options = () => {
           1
         </ButtonText>
         <ButtonText
+          className="hover"
           variant="h5"
           sx={{ mr: 10, ml: 10, padding: 2 }}
           onClick={() => setShowPinDialog(1)}
@@ -50,6 +52,7 @@ const Options = () => {
           2
         </ButtonText>
         <ButtonText
+          className="hover"
           variant="h5"
           sx={{ padding: 2 }}
           onClick={() => setShowPinDialog(2)}

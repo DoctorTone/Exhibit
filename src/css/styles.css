@@ -16,6 +16,9 @@ body {
   position: absolute;
   z-index: 100;
 }
+.hover {
+  cursor: pointer;
+}
 #title {
   top: 5%;
   left: 3%;
