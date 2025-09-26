@@ -21,6 +21,11 @@ const Options = () => {
           justifyContent: "center",
           textAlign: "center",
           color: "orange",
+          backgroundColor: "rgba(30, 30, 30, 0.25)",
+          pt: 1,
+          pb: 1,
+          borderRadius: "30px",
+          border: "1px solid rgba(255, 255, 255, 0.3)",
         }}
       >
         <ButtonText
@@ -31,11 +36,14 @@ const Options = () => {
         </ButtonText>
         <ButtonText
           variant="h5"
-          sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid blue" }}
+          sx={{ mr: 10, ml: 10, padding: 2, border: "6px solid darkblue" }}
         >
           2
         </ButtonText>
-        <ButtonText variant="h5" sx={{ padding: 2, border: "6px solid red" }}>
+        <ButtonText
+          variant="h5"
+          sx={{ padding: 2, border: "6px solid purple" }}
+        >
           3
         </ButtonText>
       </Box>
