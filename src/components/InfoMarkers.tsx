@@ -39,7 +39,11 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
             </mesh>
             <mesh>
               <circleGeometry args={[0.04, 32]} />
-              <meshBasicMaterial color="#5e5f61" />
+              <meshBasicMaterial
+                color="#5e5f61"
+                transparent={false}
+                opacity={0.5}
+              />
             </mesh>
             <Text
               fontSize={0.04}

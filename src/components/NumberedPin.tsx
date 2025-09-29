@@ -40,7 +40,7 @@ const NumberedPin = ({ pinPosition, index }: PinProps) => {
         <Text
           onClick={showInfo}
           fontSize={0.08}
-          color="white"
+          color="orange"
           outlineWidth={0.012}
           outlineColor="black"
         >

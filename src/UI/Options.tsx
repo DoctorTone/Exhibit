@@ -11,7 +11,7 @@ const ButtonText = styled(Typography)({
   lineHeight: 0.8,
   fontWeight: 800,
   WebkitTextStroke: "2px black",
-  border: "6px solid #fff",
+  border: "6px solid #487fd9",
 });
 
 const Options = () => {
