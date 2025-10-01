@@ -34,15 +34,15 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
         <Billboard key={index}>
           <group ref={ref}>
             <mesh>
-              <circleGeometry args={[0.05, 32]} />
+              <ringGeometry args={[0.04, 0.05, 32]} />
               <meshBasicMaterial color={colour} />
             </mesh>
             <mesh>
               <circleGeometry args={[0.04, 32]} />
               <meshBasicMaterial
                 color="#5e5f61"
-                transparent={false}
-                opacity={0.5}
+                transparent={true}
+                opacity={0.4}
               />
             </mesh>
             <Text
