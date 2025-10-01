@@ -42,7 +42,7 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
               <meshBasicMaterial
                 color="#5e5f61"
                 transparent={true}
-                opacity={0.4}
+                opacity={0.5}
               />
             </mesh>
             <Text
@@ -50,6 +50,7 @@ const InfoMarkers = ({ posRefs, colour }: InfoProps) => {
               color="orange"
               outlineWidth={0.006}
               outlineColor="black"
+              position-z={0.001}
             >
               {index + 1}
             </Text>
