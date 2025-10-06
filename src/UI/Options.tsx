@@ -6,9 +6,9 @@ import useStore from "../state/store";
 const ButtonText = styled(Typography)({
   backgroundColor: "#5e5f61",
   borderRadius: "50%",
-  width: "20px",
-  height: "20px",
-  lineHeight: 0.8,
+  width: "10px",
+  height: "10px",
+  lineHeight: 0.5,
   fontWeight: 800,
   WebkitTextStroke: "2px black",
   border: "6px solid #487fd9",
