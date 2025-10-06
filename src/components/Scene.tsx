@@ -1,16 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF, useAnimations, Line } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import { Vector3, Bone, SkinnedMesh } from "three";
-import { Line2 } from "three-stdlib";
 import Ocean from "./Ocean";
-import {
-  NUMBERED_PINS,
-  NUMBERED_PINS_WORLD,
-  INFOMARKER_OFFSETS,
-  INFO_LINES,
-} from "../state/Config";
-import NumberedPin from "./NumberedPin";
+import { INFOMARKER_OFFSETS } from "../state/Config";
 import InfoMarkers from "./InfoMarkers";
 
 const tempVec = new Vector3();
@@ -56,23 +49,8 @@ const Scene = () => {
   return (
     <group>
       <InfoMarkers posRefs={bonePosRefs} colour={"#487fd9"} />
-      {/* {INFO_LINES.map((props, index) => (
-        <Line
-          ref={lineRefs[index]}
-          points={[
-            [0, 0, 0],
-            [0, 0, 0],
-          ]}
-          color={props.color}
-          linewidth={props.width}
-          depthTest={true}
-        />
-      ))} */}
       <primitive rotation={[0, -Math.PI / 5, 0]} ref={ref} object={scene} />
       <Ocean />
-      {/* {NUMBERED_PINS.map((position, index) => (
-        <NumberedPin key={index} pinPosition={position} index={index} />
-      ))} */}
     </group>
   );
 };
