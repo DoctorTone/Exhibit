@@ -19,6 +19,10 @@ body {
 .hover {
   cursor: pointer;
 }
+.optionsSize {
+  width: 10px;
+  height: 10px;
+}
 #title {
   top: 2%;
   left: 3%;
@@ -35,4 +39,42 @@ body {
   bottom: 9%;
   left: 0%;
   width: 100%;
+}
+
+/* Small screen in landscape */
+@media (min-width: 600px) {
+  #options {
+    left: 25%;
+    width: 50%;
+  }
+  .optionsSize {
+    width: 5px;
+    height: 5px;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .optionsSize {
+    width: 20px;
+    height: 20px;
+  }
+  #options {
+    left: 25%;
+    width: 50%;
+  }
+}
+@media (min-width: 900px) {
+  .optionsSize {
+    width: 18px;
+    height: 18px;
+  }
+  #options {
+    left: 30%;
+    width: 40%;
+  }
+}
+@media (min-width: 1536px) {
+  #options {
+    left: 35%;
+    width: 30%;
+  }
 }

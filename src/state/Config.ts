@@ -33,6 +33,8 @@ export const RESOLUTIONS = {
 export const CONFIGURATIONS = {
   small: new Vector3(0, 2.2, 1.25),
   landscape: new Vector3(0, 2.2, 0.75),
+  large: new Vector3(0, 2.2, 1),
+  extraLarge: new Vector3(0, 2, 0.85),
 };
 
 export const DIALOG_TEXT = [

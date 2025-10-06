@@ -11,21 +11,21 @@ export const getScreenConfiguration = (width: number, height: number) => {
     return CONFIGURATIONS["landscape"];
   }
 
-  // if (width <= RESOLUTIONS.LARGE && width < height) {
-  //   return CONFIGURATIONS[CONFIG_TYPE.PORTRAIT];
-  // }
+  if (width <= RESOLUTIONS.LARGE && width > height) {
+    return CONFIGURATIONS["large"];
+  }
 
   // if (width <= RESOLUTIONS.LARGE) {
-  //   return CONFIGURATIONS[CONFIG_TYPE.LARGE];
+  //   return CONFIGURATIONS["large"];
   // }
 
   // if (width <= RESOLUTIONS.X_LARGE) {
   //   return CONFIGURATIONS[CONFIG_TYPE.TABLET];
   // }
 
-  // if (width >= RESOLUTIONS.X_LARGE) {
-  //   return CONFIGURATIONS[CONFIG_TYPE.X_LARGE];
-  // }
+  if (width >= RESOLUTIONS.X_LARGE) {
+    return CONFIGURATIONS["extraLarge"];
+  }
 
   return CONFIGURATIONS["small"];
 };
