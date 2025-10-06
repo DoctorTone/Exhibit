@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { CAMERA_POSITION } from "./Config";
+import type { ScreenSize } from "./Config";
 
 type Vec3 = [x: number, y: number, z: number];
 
@@ -9,6 +10,8 @@ type ExhibitState = {
   setCameraYPos: (pos: number) => void;
   setCameraZPos: (pos: number) => void;
 
+  screenSize: ScreenSize;
+  setScreenSize: (size: ScreenSize) => void;
   showPinDialog: number;
   setShowPinDialog: (dialog: number) => void;
   infoDialogOpen: boolean;
@@ -34,6 +37,9 @@ const usePosition = create<ExhibitState>((set) => ({
   setShowPinDialog: (dialog) => set(() => ({ showPinDialog: dialog })),
   infoDialogOpen: false,
   setShowInfoDialog: (status) => set(() => ({ infoDialogOpen: status })),
+  screenSize: { width: window.innerWidth, height: window.innerHeight },
+  setScreenSize: (size) =>
+    set((state) => ({ screenSize: { ...state.screenSize, ...size } })),
 }));
 
 export default usePosition;
