@@ -5,7 +5,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { DIALOG_TEXT } from "../state/Config";
+import Box from "@mui/material/Box";
+import { DIALOG_INFO } from "../state/Config";
 import useStore from "../state/store";
 
 interface DialogProps {
@@ -45,12 +46,17 @@ const HotspotDialog = ({ showDialog }: DialogProps) => {
       }}
     >
       <DialogTitle variant="h4" sx={{ textAlign: "center" }}>
-        {showDialog > -1 && DIALOG_TEXT[showDialog].title}
+        {showDialog > -1 && DIALOG_INFO[showDialog].title}
       </DialogTitle>
 
       <DialogContent dividers>
+        <Box>
+          {showDialog > -1 && (
+            <img src={DIALOG_INFO[showDialog].image} className="w-100" />
+          )}
+        </Box>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          {showDialog > -1 && DIALOG_TEXT[showDialog].text}
+          {showDialog > -1 && DIALOG_INFO[showDialog].text}
         </Typography>
       </DialogContent>
 

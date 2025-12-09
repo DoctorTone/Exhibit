@@ -19,7 +19,7 @@ const Options = () => {
   return (
     <div id="options" className="panel">
       <Typography variant="h6" color="white" sx={{ textAlign: "center" }}>
-        Select for Info
+        Info Points
       </Typography>
       <Box
         sx={{
